@@ -1,0 +1,241 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>project1_sinusoidal</title><meta name="generator" content="MATLAB 9.12"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-06-17"><meta name="DC.source" content="project1_sinusoidal.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%define sinusoidal functions</span>
+f = @(t,y) (0.75*y) - (0.005*y^2) - ((1.5*y^3)/(y^3 + 1.25)*(abs(sin((pi/365)*t))));
+g = @(t,y) (0.75*y) - (0.05*y^2) - ((1.5*y^3)/(y^3 + 1.25)*(abs(sin((pi/365)*t))));
+h = @(t,y) (0.75*y) - (0.1*y^2) - ((1.5*y^3)/(y^3 + 1.25)*(abs(sin((pi/365)*t))));
+
+figure(1);  <span class="comment">%figure for b=0.005</span>
+hold <span class="string">on</span>;
+title(<span class="string">'Seasonal Variation in Klingon Hunting of Brown Tribbles (b=0.005'</span>);
+xlabel (<span class="string">'Time in Days'</span>);
+ylabel (<span class="string">'Hundreds of Tribbles'</span>)
+ax = gca;
+ax.YLim = [-1 200];
+ax.XLim = [-1 2000];
+
+tspan = [0,2000];  <span class="comment">%tspan for all solutions (2000 days)</span>
+[t1,y1] = ode45(f,tspan,1.5);  <span class="comment">%solution for initial pt 1.5</span>
+plot(t1,y1,<span class="string">'blue'</span>,LineWidth=1);
+
+[t2,y2] = ode45(f,tspan,0.5);   <span class="comment">%solution for initial pt 0.5</span>
+plot(t2,y2,<span class="string">'magenta'</span>,LineWidth=1);
+
+[t3,y3] = ode45(f,tspan,0.05); <span class="comment">%solution for initial pt 0.05</span>
+plot(t3,y3,<span class="string">'green'</span>,LineWidth=1);
+
+[ta,ya] = ode45(f,tspan,200);  <span class="comment">%solution for initial pt 200</span>
+plot(ta,ya,<span class="string">'black'</span>,LineWidth=1);
+legend(<span class="string">'Solution for initial point (0,1.5)'</span>, <span class="keyword">...</span>
+    <span class="string">'Solution for initial point (0,0.5)'</span>, <span class="keyword">...</span>
+    <span class="string">'Solution for initial point (0,0.05)'</span>, <span class="keyword">...</span>
+    <span class="string">'Solution for initial point (0,200'</span>);
+
+figure(2);  <span class="comment">%figure for b=0.05</span>
+hold <span class="string">on</span>;
+title(<span class="string">'Seasonal Variation in Klingon Hunting of White Tribbles (b=0.05'</span>);
+xlabel (<span class="string">'Time in Days'</span>);
+ylabel (<span class="string">'Hundreds of Tribbles'</span>)
+ax = gca;
+ax.YLim = [-1 22];
+ax.XLim = [-1 2000];
+
+[t4,y4] = ode45(g,tspan,14);    <span class="comment">%solution for initial pt 14</span>
+plot(t4,y4,<span class="string">'blue'</span>,LineWidth=1);
+
+[t5,y5] = ode45(g,tspan,2.5);   <span class="comment">%solution for initial pt 2.5</span>
+plot(t5,y5,<span class="string">'green'</span>,LineWidth=1);
+
+[t6,y6] = ode45(g,tspan,1.8);   <span class="comment">%solution for initial pt 1.8</span>
+plot(t6,y6,<span class="string">'magenta'</span>,LineWidth=1);
+
+[t7,y7] = ode45(g,tspan,0.05);  <span class="comment">%solution for initial pt 0.05</span>
+plot(t7,y7,<span class="string">'red'</span>,LineWidth=1);
+
+[tb,yb] = ode45(g,tspan,20);    <span class="comment">%solution for initial pt 20</span>
+plot(tb,yb,<span class="string">'black'</span>,LineWidth=1);
+legend(<span class="string">'Solution for initial point (0,14)'</span>, <span class="keyword">...</span>
+    <span class="string">'Solution for initial point (0,2.5)'</span>, <span class="keyword">...</span>
+    <span class="string">'Solution for initial point (0,1.8)'</span>, <span class="keyword">...</span>
+    <span class="string">'Solution for initial point (0,0.05)'</span>, <span class="keyword">...</span>
+    <span class="string">'Solution for initial point (0,20'</span>);
+
+figure(3);   <span class="comment">%figure for b=0.1</span>
+hold <span class="string">on</span>;
+title(<span class="string">'Seasonal Variation in Klingon Hunting of Grey Tribbles (b=0.1'</span>);
+xlabel (<span class="string">'Time in Days'</span>);
+ylabel (<span class="string">'Hundreds of Tribbles'</span>)
+ax = gca;
+ax.YLim = [-1 12];
+ax.XLim = [-1 2000];
+
+[t8,y8] = ode45(h,tspan,0.05);    <span class="comment">%solution for initial pt 0.05</span>
+plot(t8,y8,<span class="string">'blue'</span>,LineWidth=1);
+
+[t9,y9] = ode45(h,tspan,3);       <span class="comment">%solution for initial pt 3</span>
+plot(t9,y9,<span class="string">'magenta'</span>,LineWidth=1);
+
+[t10,y10] = ode45(h,tspan,6.5);   <span class="comment">%solution for initial pt 6.5</span>
+plot(t10,y10,<span class="string">'green'</span>,LineWidth=1);
+
+[tc,yc] = ode45(h,tspan,20);     <span class="comment">%solution for initial pt 20</span>
+plot(tc,yc,<span class="string">'black'</span>,LineWidth=1);
+legend(<span class="string">'Solution for initial point (0,0.05)'</span>, <span class="keyword">...</span>
+    <span class="string">'Solution for initial point (0,3)'</span>, <span class="keyword">...</span>
+    <span class="string">'Solution for initial point (0,6.5)'</span>, <span class="keyword">...</span>
+    <span class="string">'Solution for initial point (0,20'</span>);
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2022a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%define sinusoidal functions
+f = @(t,y) (0.75*y) - (0.005*y^2) - ((1.5*y^3)/(y^3 + 1.25)*(abs(sin((pi/365)*t))));
+g = @(t,y) (0.75*y) - (0.05*y^2) - ((1.5*y^3)/(y^3 + 1.25)*(abs(sin((pi/365)*t))));
+h = @(t,y) (0.75*y) - (0.1*y^2) - ((1.5*y^3)/(y^3 + 1.25)*(abs(sin((pi/365)*t))));
+
+figure(1);  %figure for b=0.005
+hold on;
+title('Seasonal Variation in Klingon Hunting of Brown Tribbles (b=0.005');
+xlabel ('Time in Days');
+ylabel ('Hundreds of Tribbles')
+ax = gca;
+ax.YLim = [-1 200];
+ax.XLim = [-1 2000];
+
+tspan = [0,2000];  %tspan for all solutions (2000 days)
+[t1,y1] = ode45(f,tspan,1.5);  %solution for initial pt 1.5
+plot(t1,y1,'blue',LineWidth=1);
+
+[t2,y2] = ode45(f,tspan,0.5);   %solution for initial pt 0.5
+plot(t2,y2,'magenta',LineWidth=1);
+
+[t3,y3] = ode45(f,tspan,0.05); %solution for initial pt 0.05
+plot(t3,y3,'green',LineWidth=1);
+
+[ta,ya] = ode45(f,tspan,200);  %solution for initial pt 200
+plot(ta,ya,'black',LineWidth=1);
+legend('Solution for initial point (0,1.5)', ...
+    'Solution for initial point (0,0.5)', ...
+    'Solution for initial point (0,0.05)', ...
+    'Solution for initial point (0,200');
+
+figure(2);  %figure for b=0.05
+hold on;
+title('Seasonal Variation in Klingon Hunting of White Tribbles (b=0.05');
+xlabel ('Time in Days');
+ylabel ('Hundreds of Tribbles')
+ax = gca;
+ax.YLim = [-1 22];
+ax.XLim = [-1 2000];
+
+[t4,y4] = ode45(g,tspan,14);    %solution for initial pt 14
+plot(t4,y4,'blue',LineWidth=1);
+
+[t5,y5] = ode45(g,tspan,2.5);   %solution for initial pt 2.5
+plot(t5,y5,'green',LineWidth=1);
+
+[t6,y6] = ode45(g,tspan,1.8);   %solution for initial pt 1.8
+plot(t6,y6,'magenta',LineWidth=1);
+
+[t7,y7] = ode45(g,tspan,0.05);  %solution for initial pt 0.05
+plot(t7,y7,'red',LineWidth=1);
+
+[tb,yb] = ode45(g,tspan,20);    %solution for initial pt 20
+plot(tb,yb,'black',LineWidth=1);
+legend('Solution for initial point (0,14)', ...
+    'Solution for initial point (0,2.5)', ...
+    'Solution for initial point (0,1.8)', ...
+    'Solution for initial point (0,0.05)', ...
+    'Solution for initial point (0,20');
+
+figure(3);   %figure for b=0.1
+hold on;
+title('Seasonal Variation in Klingon Hunting of Grey Tribbles (b=0.1');
+xlabel ('Time in Days');
+ylabel ('Hundreds of Tribbles')
+ax = gca;
+ax.YLim = [-1 12];
+ax.XLim = [-1 2000];
+
+[t8,y8] = ode45(h,tspan,0.05);    %solution for initial pt 0.05
+plot(t8,y8,'blue',LineWidth=1);
+
+[t9,y9] = ode45(h,tspan,3);       %solution for initial pt 3
+plot(t9,y9,'magenta',LineWidth=1);
+
+[t10,y10] = ode45(h,tspan,6.5);   %solution for initial pt 6.5
+plot(t10,y10,'green',LineWidth=1);
+
+[tc,yc] = ode45(h,tspan,20);     %solution for initial pt 20
+plot(tc,yc,'black',LineWidth=1);
+legend('Solution for initial point (0,0.05)', ...
+    'Solution for initial point (0,3)', ...
+    'Solution for initial point (0,6.5)', ...
+    'Solution for initial point (0,20');
+##### SOURCE END #####
+--></body></html>

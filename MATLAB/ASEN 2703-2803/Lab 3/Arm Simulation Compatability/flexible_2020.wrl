@@ -1,0 +1,136 @@
+#VRML V2.0 utf8
+# Copyright 1998-2011 HUMUSOFT s.r.o. and The MathWorks, Inc.
+
+EXTERNPROTO Grid_101x101 [
+  exposedField SFVec3f position
+  exposedField SFRotation rotation
+  exposedField SFVec3f scale
+  exposedField SFColor color
+  exposedField SFInt32 visible
+]
+"second_files/objects/Components/Grids/Grid_101x101.wrl#Grid_101x101" 
+
+Background {
+  skyColor 0.8 1 0.8
+  groundColor 1 0.2 0.2
+}
+DEF XZ_Grid Grid_101x101 {
+}
+DEF B1 Transform {
+  translation 0 0 -2.5
+  rotation 0 1 0 0.149618
+  center 0 0 2.5
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 0.4 0.4 0.4
+        }
+      }
+      geometry Box {
+        size 0.1 1 5
+      }
+    }
+    Transform {
+      translation 0 0 2.5
+      center 0 0 -5
+      children Shape {
+        appearance Appearance {
+          material Material {
+            specularColor 1 0.8 0.2
+            emissiveColor 1 0.8 0.2
+          }
+        }
+        geometry Cylinder {
+          height 1
+        }
+      }
+    }
+  ]
+}
+DEF Tip Transform {
+  translation -0.7453 0 -9.94414
+  rotation 0 1 0 0.149618
+  center 0 0 5
+  children Shape {
+    appearance Appearance {
+      material Material {
+        emissiveColor 0.6 0.6 0.6
+        diffuseColor 0.4 0.4 0.4
+      }
+    }
+    geometry Box {
+      size 0.1 1 10
+    }
+  }
+}
+DEF Top3 Viewpoint {
+  description "Top3"
+  position 6.75134 12.3528 15.3793
+  orientation -0.83101 0.556029 -0.0159576 0.527887
+}
+DEF Top2 Viewpoint {
+  description "Top2"
+  position -0.736568 20.6226 2.97624
+  orientation -0.991179 -0.132347 -0.00703021 1.22608
+}
+DEF Back1 Viewpoint {
+  description "Back1"
+  position 0.251489 14.9158 19.7855
+  orientation -0.975138 0.173776 -0.137505 0.478532
+}
+Transform {
+  translation 0 -3.5 0
+  children Shape {
+    appearance Appearance {
+      material Material {
+      }
+    }
+    geometry Box {
+      size 5 5 5
+    }
+  }
+}
+DEF TipTop Viewpoint {
+  description "TipTop"
+  position 0 30 -10
+  orientation -1 0 0 1.5715
+}
+DEF Front Viewpoint {
+  description "Front"
+  position 7.92916 15 -25.9987
+  orientation 0 1 0.3 2.7
+}
+DEF Ref Transform {
+  translation 0 0 -7.5
+  rotation 0 1 0 0
+  center 0 0 7.5
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 0.4 0.4 0.4
+          diffuseColor 1 0.2 0.2
+        }
+      }
+      geometry Box {
+        size 0.1 1 15
+      }
+    }
+    Transform {
+      translation 0 0 7.5
+      center 0 0 -7.5
+      children Shape {
+        appearance Appearance {
+          material Material {
+            specularColor 1 0.8 0.2
+            emissiveColor 1 0.8 0.2
+          }
+        }
+        geometry Cylinder {
+          height 1
+        }
+      }
+    }
+  ]
+}

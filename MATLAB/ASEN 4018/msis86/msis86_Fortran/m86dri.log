@@ -1,0 +1,619 @@
+
+   ************* MSIS THERMOSPHERE MODEL 1986 **************
+***************************************************************
+THIS PROGRAM ALLOWS YOU TO PRODUCE MSIS-PROFILES IN LATITUDE,
+LONGITUDE,SOLAR ACTIVITY,DAY,TIME,ALTITUDE OR MAGNETIC ACTIVITY.
+***************************************************************
+ In each of the following windows you will be asked to enter
+ one or more values, defining the conditions for your MSIS
+ tables.
+ In each window the current value(s) is (are) shown in the right
+ upper corner (#..#). You can choose the current value(s) by
+ entering / at the prompt
+ If you enter a wrong character or a value outside the allowed
+ parameter range, the program will ask you for a new entry.
+ After your tables are displayed, you can change any parameter
+ you wish to change and create new tables
+***************************************************************
+
+DO YOU WANT YOUR MSIS-PROFILES                           #0#
+    DISPLAYED ON YOUR MONITOR:  ENTER  0  AT PROMPT
+    STORED IN FILE OUTPUT.MSI:  ENTER  1  AT PROMPT
+    DISPLAYED AND STORED:       ENTER  2  AT PROMPT
+------------------------------------------------------------
+enter /, to continue with current value(s)
+;
+Your input is outside the value range: 0 to   2, try again
+0
+
+
+SELECT YOUR VARIABLE:                                    #7#
+
+                                 Geodetic or geomagnetic coordinates
+                                 are assumed depending on your later
+1  LATITUDE    5  DAY OF YEAR    selection of JMAG.
+2  LONGITUDE   6  HOUR           Variation with Universal Time is chosen
+3  F10.7       7  ALTITUDE       by adding "25" to your BEGIN hour in 
+4  F10.7M      8  AP             the next window.
+                                 If you select F10.7M, F10.7 = F10.7M
+                                 will be assumed.
+------------------------------------------------------------
+enter /, to continue with current value(s)
+/
+
+
+CHOOSE YOUR VARIABLE RANGE:      BEGIN, END, STEPWIDTH ?
+                               #   100.0,  1000.0,   100.0#
+
+------------------------------------------------------------
+enter /, to continue with current value(s)
+/
+
+
+JMAG ?                                                  #0#
+
+!! "0" geodetic longitude and latitude
+!! "1"    geomagnetic   ... 
+------------------------------------------------------------
+enter /, to continue with current value(s)
+/
+
+
+GEOD LATITUDE ?   !NORTH!    [DEGREE,DECIMAL]        # 45.1#
+------------------------------------------------------------
+enter /, to continue with current value(s)
+/
+
+
+GEOD LONGITUDE ?   !EAST!    [DEGREE,DECIMAL]        #293.1#
+------------------------------------------------------------
+enter /, to continue with current value(s)
+/
+
+
+10.7CM SOLAR RADIO FLUX ?    * PREVIOUS DAY *        #100.0#
+------------------------------------------------------------
+enter /, to continue with current value(s)
+/
+
+
+10.7CM SOLAR RADIO FLUX ?   * MONTHLY AVERAGE *      #100.0#
+------------------------------------------------------------
+enter /, to continue with current value(s)
+/
+
+
+DAY OF YEAR ?        * DDD *                           #231#
+------------------------------------------------------------
+enter /, to continue with current value(s)
+/
+
+
+LOCAL TIME ?        [HOURS, DECIMAL]              #12.5(LT)#
+
+!! Universal Time (UT) is assumed, if you enter UT+25.
+!! Enter -1, if you like to provide LOCAL TIME as well as UNIVERSAL TIME
+------------------------------------------------------------
+enter /, to continue with current value(s)
+30
+
+
+AP-INDEX ?    * MAGNETIC ACTIVITY *                  #  0.0#
+
+!! "-1"   enter detailed AP history for 59 hours
+!!        prior to current time
+------------------------------------------------------------
+enter /, to continue with current value(s)
+-1
+1  DAILY AP                                             #  0.0#
+2  3-H(OUR)-AP INDEX FOR CURRENT TIME                   #  0.0#
+3  3-H-AP INDEX FOR 3 HRS BEFORE CURRENT TIME           #  0.0#
+4  3-H-AP INDEX FOR 6 HRS BEFORE CURRENT TIME           #  0.0#
+5  3-H-AP INDEX FOR 9 HRS BEFORE CURRENT TIME           #  0.0#
+6  AVERAGE OF 3-H-AP INDICIES FROM 12 TO 33 HRS BEFORE  #  0.0#
+7  AVERAGE OF 3-H-AP INDICIES FROM 36 TO 59 HRS BEFORE  #  0.0#
+----------------------------------------------------------------------
+ENTER: NUMBER, AP-VALUE    (0,0 TO CONTINUE)
+1,20
+1  DAILY AP                                             # 20.0#
+2  3-H(OUR)-AP INDEX FOR CURRENT TIME                   #  0.0#
+3  3-H-AP INDEX FOR 3 HRS BEFORE CURRENT TIME           #  0.0#
+4  3-H-AP INDEX FOR 6 HRS BEFORE CURRENT TIME           #  0.0#
+5  3-H-AP INDEX FOR 9 HRS BEFORE CURRENT TIME           #  0.0#
+6  AVERAGE OF 3-H-AP INDICIES FROM 12 TO 33 HRS BEFORE  #  0.0#
+7  AVERAGE OF 3-H-AP INDICIES FROM 36 TO 59 HRS BEFORE  #  0.0#
+----------------------------------------------------------------------
+ENTER: NUMBER, AP-VALUE    (0,0 TO CONTINUE)
+2,10
+1  DAILY AP                                             # 20.0#
+2  3-H(OUR)-AP INDEX FOR CURRENT TIME                   # 10.0#
+3  3-H-AP INDEX FOR 3 HRS BEFORE CURRENT TIME           #  0.0#
+4  3-H-AP INDEX FOR 6 HRS BEFORE CURRENT TIME           #  0.0#
+5  3-H-AP INDEX FOR 9 HRS BEFORE CURRENT TIME           #  0.0#
+6  AVERAGE OF 3-H-AP INDICIES FROM 12 TO 33 HRS BEFORE  #  0.0#
+7  AVERAGE OF 3-H-AP INDICIES FROM 36 TO 59 HRS BEFORE  #  0.0#
+----------------------------------------------------------------------
+ENTER: NUMBER, AP-VALUE    (0,0 TO CONTINUE)
+0,0
+
+
+SELECTION OF PARTICULAR VARIATIONS:  "0"  OFF   "1"  ON
+    "2"  MAIN EFFECT OFF, BUT CROSS TERMS ON     "-1"  SPECIAL
+----------------------------------------------------------------------
+1  F10.7 EFFECT ON MEAN   #1#         2  TIME INDEPENDENT        #1#
+3  SYMMETRICAL ANNUAL     #1#         4  SYMMETRICAL SEMI-ANNUAL #1#
+5  ASYMMETRICAL ANNUAL    #1#         6  ASYMMETRICAL SEMI-ANNUAL#1#
+7  DIURNAL                #1#         8  SEMI-DIURNAL            #1#
+9  DAILY AP (-1 HISTORY) #-1#        10  ALL UT/LONG EFFECTS     #1#
+11 LONGITUDINAL           #1#        12  UT AND MIXED UT/LONG    #1#
+13 MIXED AP/UT/LONG       #1#        14  TER-DIURNAL             #1#
+15 DEPARTURES FROM DIFF. EQUIL. #1#  16  ALL TINF VARIATION      #1#
+17 ALL TLB VARIATION      #1#        18  ALL T0 VARIATION        #1#
+19 ALL S VARIATION        #1#        20  ALL Z0 VARIATION        #1#
+21 ALL NLB VARIATION      #1#        22  ALL TR12 VARIATION      #1#
+23 TURBO SCALE HEIGHT VARIATION #1#
+----------------------------------------------------------------------
+ENTER: NUMBER, NEW FLAG     OR: "0,0" TO CONTINUE
+2,2
+
+
+SELECTION OF PARTICULAR VARIATIONS:  "0"  OFF   "1"  ON
+    "2"  MAIN EFFECT OFF, BUT CROSS TERMS ON     "-1"  SPECIAL
+----------------------------------------------------------------------
+1  F10.7 EFFECT ON MEAN   #1#         2  TIME INDEPENDENT        #2#
+3  SYMMETRICAL ANNUAL     #1#         4  SYMMETRICAL SEMI-ANNUAL #1#
+5  ASYMMETRICAL ANNUAL    #1#         6  ASYMMETRICAL SEMI-ANNUAL#1#
+7  DIURNAL                #1#         8  SEMI-DIURNAL            #1#
+9  DAILY AP (-1 HISTORY) #-1#        10  ALL UT/LONG EFFECTS     #1#
+11 LONGITUDINAL           #1#        12  UT AND MIXED UT/LONG    #1#
+13 MIXED AP/UT/LONG       #1#        14  TER-DIURNAL             #1#
+15 DEPARTURES FROM DIFF. EQUIL. #1#  16  ALL TINF VARIATION      #1#
+17 ALL TLB VARIATION      #1#        18  ALL T0 VARIATION        #1#
+19 ALL S VARIATION        #1#        20  ALL Z0 VARIATION        #1#
+21 ALL NLB VARIATION      #1#        22  ALL TR12 VARIATION      #1#
+23 TURBO SCALE HEIGHT VARIATION #1#
+----------------------------------------------------------------------
+ENTER: NUMBER, NEW FLAG     OR: "0,0" TO CONTINUE
+2,1
+
+
+SELECTION OF PARTICULAR VARIATIONS:  "0"  OFF   "1"  ON
+    "2"  MAIN EFFECT OFF, BUT CROSS TERMS ON     "-1"  SPECIAL
+----------------------------------------------------------------------
+1  F10.7 EFFECT ON MEAN   #1#         2  TIME INDEPENDENT        #1#
+3  SYMMETRICAL ANNUAL     #1#         4  SYMMETRICAL SEMI-ANNUAL #1#
+5  ASYMMETRICAL ANNUAL    #1#         6  ASYMMETRICAL SEMI-ANNUAL#1#
+7  DIURNAL                #1#         8  SEMI-DIURNAL            #1#
+9  DAILY AP (-1 HISTORY) #-1#        10  ALL UT/LONG EFFECTS     #1#
+11 LONGITUDINAL           #1#        12  UT AND MIXED UT/LONG    #1#
+13 MIXED AP/UT/LONG       #1#        14  TER-DIURNAL             #1#
+15 DEPARTURES FROM DIFF. EQUIL. #1#  16  ALL TINF VARIATION      #1#
+17 ALL TLB VARIATION      #1#        18  ALL T0 VARIATION        #1#
+19 ALL S VARIATION        #1#        20  ALL Z0 VARIATION        #1#
+21 ALL NLB VARIATION      #1#        22  ALL TR12 VARIATION      #1#
+23 TURBO SCALE HEIGHT VARIATION #1#
+----------------------------------------------------------------------
+ENTER: NUMBER, NEW FLAG     OR: "0,0" TO CONTINUE
+0,0
+
+
+
+
+
+
+
+
+
+
+   H/KM        NUMBER DENSITIES/CM-3     MASS DENSITY  TEMPERATURE/K
+              O         N2         O2       G*CM-3       TN   TEXO
+  100.0   3.132E+11  8.741E+12  2.040E+12  5.283E-10     192   796
+  200.0   2.362E+09  2.392E+09  1.427E+08  1.819E-13     766   796
+  300.0   2.245E+08  4.745E+07  1.626E+06  8.322E-15     795   796
+  400.0   2.616E+07  1.137E+06  2.287E+04  7.637E-16     796   796
+  500.0   3.296E+06  3.047E+04  3.654E+02  9.464E-17     796   796
+  600.0   4.422E+05  9.062E+02  6.577E+00  1.478E-17     796   796
+  700.0   6.279E+04  2.977E+01  1.326E-01  3.488E-18     796   796
+  800.0   9.417E+03  1.076E+00  2.983E-03  1.431E-18     796   796
+  900.0   1.488E+03  4.262E-02  7.449E-05  8.370E-19     796   796
+ 1000.0   2.473E+02  1.843E-03  2.056E-06  5.644E-19     796   796
+--------------------------------------------------------------------------
+LATI/LONG= 45.1/293.1  H=1000.0  F10.7 =100.0  DAY:231  LT: 0.5  AP= 20.0
+MLAT/MLON= 56.5/  3.7            F10.7M=100.0           UT: 5.0
+--------------------------------------------------------------------------
+
+**** DO YOU WANT TO CONTINUE?
+------------------------------------------------------------
+"0"  QUIT AND EXIT        "1"  NEW PARAMETERS
+"2"  OTHER OUTPUT WINDOW
+------------------------------------------------------------
+2
+
+
+
+
+
+
+
+
+
+
+   H/KM             NUMBER DENSITIES/CM-3            TEMPERATURE/K
+              HE         AR         H          N         TN
+  100.0   1.071E+08  8.062E+10  2.346E+07  2.426E+05     192
+  200.0   3.174E+06  1.420E+06  3.310E+05  1.439E+07     766
+  300.0   1.782E+06  5.310E+03  2.451E+05  2.324E+06     795
+  400.0   1.045E+06  2.574E+01  2.140E+05  3.274E+05     796
+  500.0   6.232E+05  1.462E-01  1.880E+05  5.227E+04     796
+  600.0   3.772E+05  9.638E-04  1.658E+05  9.014E+03     796
+  700.0   2.315E+05  7.325E-06  1.468E+05  1.634E+03     796
+  800.0   1.441E+05  6.380E-08  1.304E+05  3.106E+02     796
+  900.0   9.084E+04  6.333E-10  1.162E+05  6.182E+01     796
+ 1000.0   5.800E+04  7.127E-12  1.038E+05  1.285E+01     796
+--------------------------------------------------------------------------
+LATI/LONG= 45.1/293.1  H=1000.0  F10.7 =100.0  DAY:231  LT: 0.5  AP= 20.0
+MLAT/MLON= 56.5/  3.7            F10.7M=100.0           UT: 5.0
+--------------------------------------------------------------------------
+
+**** DO YOU WANT TO CONTINUE?
+------------------------------------------------------------
+"0"  QUIT AND EXIT        "1"  NEW PARAMETERS
+"2"  OTHER OUTPUT WINDOW
+------------------------------------------------------------
+2
+
+
+
+
+
+
+
+
+
+
+   H/KM        NUMBER DENSITIES/CM-3     MASS DENSITY  TEMPERATURE/K
+              O         N2         O2       G*CM-3       TN   TEXO
+  100.0   3.132E+11  8.741E+12  2.040E+12  5.283E-10     192   796
+  200.0   2.362E+09  2.392E+09  1.427E+08  1.819E-13     766   796
+  300.0   2.245E+08  4.745E+07  1.626E+06  8.322E-15     795   796
+  400.0   2.616E+07  1.137E+06  2.287E+04  7.637E-16     796   796
+  500.0   3.296E+06  3.047E+04  3.654E+02  9.464E-17     796   796
+  600.0   4.422E+05  9.062E+02  6.577E+00  1.478E-17     796   796
+  700.0   6.279E+04  2.977E+01  1.326E-01  3.488E-18     796   796
+  800.0   9.417E+03  1.076E+00  2.983E-03  1.431E-18     796   796
+  900.0   1.488E+03  4.262E-02  7.449E-05  8.370E-19     796   796
+ 1000.0   2.473E+02  1.843E-03  2.056E-06  5.644E-19     796   796
+--------------------------------------------------------------------------
+LATI/LONG= 45.1/293.1  H=1000.0  F10.7 =100.0  DAY:231  LT: 0.5  AP= 20.0
+MLAT/MLON= 56.5/  3.7            F10.7M=100.0           UT: 5.0
+--------------------------------------------------------------------------
+
+**** DO YOU WANT TO CONTINUE?
+------------------------------------------------------------
+"0"  QUIT AND EXIT        "1"  NEW PARAMETERS
+"2"  OTHER OUTPUT WINDOW
+------------------------------------------------------------
+1
+
+
+**** WHICH PARAMETER DO YOU WANT TO CHANGE?
+----------------------------------------------------------------------
+0  NO FURTHER CHANGES, CALCULATE PROFILE
+1  LATITUDE  # 45.1#        7  GEOD.(0) OR GEOM.(1)    #0#
+2  LONGITUDE #293.1#        8  SELECTION OF VARIABLE   # H/KM#
+3  ALTITUDE  #1000.0#       9  VARIABLE RANGE  #   100.0  1000.0   100.0#
+4  F10.7     #100.0#       10  F10.7M                  #100.0#
+5  DAY       #231#         11  ON/OFF FOR PARTICULAR VARIATIONS
+6  HOUR (UT) #  5.0#       12  DISPLAY OR STORE
+                           13  AP                       # 20.0#
+----------------------------------------------------------------------
+ENTER NUMBER
+8
+
+
+SELECT YOUR VARIABLE:                                    #7#
+
+                                 Geodetic or geomagnetic coordinates
+                                 are assumed depending on your later
+1  LATITUDE    5  DAY OF YEAR    selection of JMAG.
+2  LONGITUDE   6  HOUR           Variation with Universal Time is chosen
+3  F10.7       7  ALTITUDE       by adding "25" to your BEGIN hour in 
+4  F10.7M      8  AP             the next window.
+                                 If you select F10.7M, F10.7 = F10.7M
+                                 will be assumed.
+------------------------------------------------------------
+enter /, to continue with current value(s)
+6
+
+
+CHOOSE YOUR VARIABLE RANGE:      BEGIN, END, STEPWIDTH ?
+                               #   100.0,  1000.0,   100.0#
+
+!! if your variable is HOUR and you add "25" to your BEGIN 
+!! hour UNIVERSAL TIME is assumed, otherwise LOCAL TIME
+------------------------------------------------------------
+enter /, to continue with current value(s)
+25,24,4
+
+
+**** WHICH PARAMETER DO YOU WANT TO CHANGE?
+----------------------------------------------------------------------
+0  NO FURTHER CHANGES, CALCULATE PROFILE
+1  LATITUDE  # 45.1#        7  GEOD.(0) OR GEOM.(1)    #0#
+2  LONGITUDE #293.1#        8  SELECTION OF VARIABLE   # HOUR#
+3  ALTITUDE  #1000.0#       9  VARIABLE RANGE  #     0.0    24.0     4.0#
+4  F10.7     #100.0#       10  F10.7M                  #100.0#
+5  DAY       #231#         11  ON/OFF FOR PARTICULAR VARIATIONS
+6  HOUR (UT) #  5.0#       12  DISPLAY OR STORE
+                           13  AP                       # 20.0#
+----------------------------------------------------------------------
+ENTER NUMBER
+3
+
+
+ALTITUDE ?    [KM]                                  #1000.0#
+------------------------------------------------------------
+enter /, to continue with current value(s)
+300
+
+
+**** WHICH PARAMETER DO YOU WANT TO CHANGE?
+----------------------------------------------------------------------
+0  NO FURTHER CHANGES, CALCULATE PROFILE
+1  LATITUDE  # 45.1#        7  GEOD.(0) OR GEOM.(1)    #0#
+2  LONGITUDE #293.1#        8  SELECTION OF VARIABLE   # HOUR#
+3  ALTITUDE  # 300.0#       9  VARIABLE RANGE  #     0.0    24.0     4.0#
+4  F10.7     #100.0#       10  F10.7M                  #100.0#
+5  DAY       #231#         11  ON/OFF FOR PARTICULAR VARIATIONS
+6  HOUR (UT) #  5.0#       12  DISPLAY OR STORE
+                           13  AP                       # 20.0#
+----------------------------------------------------------------------
+ENTER NUMBER
+13
+
+
+AP-INDEX ?    * MAGNETIC ACTIVITY *                  # 20.0#
+
+!! "-1"   enter detailed AP history for 59 hours
+!!        prior to current time
+------------------------------------------------------------
+enter /, to continue with current value(s)
+;
+Your input is outside the value range:   -1.0 to  500.0, try again
+0
+
+
+**** WHICH PARAMETER DO YOU WANT TO CHANGE?
+----------------------------------------------------------------------
+0  NO FURTHER CHANGES, CALCULATE PROFILE
+1  LATITUDE  # 45.1#        7  GEOD.(0) OR GEOM.(1)    #0#
+2  LONGITUDE #293.1#        8  SELECTION OF VARIABLE   # HOUR#
+3  ALTITUDE  # 300.0#       9  VARIABLE RANGE  #     0.0    24.0     4.0#
+4  F10.7     #100.0#       10  F10.7M                  #100.0#
+5  DAY       #231#         11  ON/OFF FOR PARTICULAR VARIATIONS
+6  HOUR (UT) #  5.0#       12  DISPLAY OR STORE
+                           13  AP                       #  0.0#
+----------------------------------------------------------------------
+ENTER NUMBER
+0
+
+
+
+
+
+
+
+
+
+
+   HOUR        NUMBER DENSITIES/CM-3     MASS DENSITY  TEMPERATURE/K
+   U.T.       O         N2         O2       G*CM-3       TN   TEXO
+    0.0   3.210E+08  6.869E+07  3.067E+06  1.202E-14     912   922
+    4.0   2.453E+08  5.060E+07  1.769E+06  9.047E-15     802   803
+    8.0   2.026E+08  4.550E+07  1.754E+06  7.630E-15     814   817
+   12.0   2.748E+08  6.213E+07  2.960E+06  1.042E-14     875   881
+   16.0   3.788E+08  9.540E+07  3.823E+06  1.487E-14     936   941
+   20.0   3.598E+08  8.354E+07  3.279E+06  1.376E-14     958   972
+   24.0   3.210E+08  6.869E+07  3.067E+06  1.202E-14     912   922
+--------------------------------------------------------------------------
+LATI/LONG= 45.1/293.1  H= 300.0  F10.7 =100.0  DAY:231  LT:19.5  AP=  0.0
+MLAT/MLON= 56.5/  3.7            F10.7M=100.0           UT:24.0
+--------------------------------------------------------------------------
+
+**** DO YOU WANT TO CONTINUE?
+------------------------------------------------------------
+"0"  QUIT AND EXIT        "1"  NEW PARAMETERS
+"2"  OTHER OUTPUT WINDOW
+------------------------------------------------------------
+1
+
+
+**** WHICH PARAMETER DO YOU WANT TO CHANGE?
+----------------------------------------------------------------------
+0  NO FURTHER CHANGES, CALCULATE PROFILE
+1  LATITUDE  # 45.1#        7  GEOD.(0) OR GEOM.(1)    #0#
+2  LONGITUDE #293.1#        8  SELECTION OF VARIABLE   # HOUR#
+3  ALTITUDE  # 300.0#       9  VARIABLE RANGE  #     0.0    24.0     4.0#
+4  F10.7     #100.0#       10  F10.7M                  #100.0#
+5  DAY       #231#         11  ON/OFF FOR PARTICULAR VARIATIONS
+6  HOUR (UT) # 24.0#       12  DISPLAY OR STORE
+                           13  AP                       #  0.0#
+----------------------------------------------------------------------
+ENTER NUMBER
+8
+
+
+SELECT YOUR VARIABLE:                                    #6#
+
+                                 Geodetic or geomagnetic coordinates
+                                 are assumed depending on your later
+1  LATITUDE    5  DAY OF YEAR    selection of JMAG.
+2  LONGITUDE   6  HOUR           Variation with Universal Time is chosen
+3  F10.7       7  ALTITUDE       by adding "25" to your BEGIN hour in 
+4  F10.7M      8  AP             the next window.
+                                 If you select F10.7M, F10.7 = F10.7M
+                                 will be assumed.
+------------------------------------------------------------
+enter /, to continue with current value(s)
+3
+
+
+CHOOSE YOUR VARIABLE RANGE:      BEGIN, END, STEPWIDTH ?
+                               #     0.0,    24.0,     4.0#
+
+------------------------------------------------------------
+enter /, to continue with current value(s)
+70,250,30
+
+
+**** WHICH PARAMETER DO YOU WANT TO CHANGE?
+----------------------------------------------------------------------
+0  NO FURTHER CHANGES, CALCULATE PROFILE
+1  LATITUDE  # 45.1#        7  GEOD.(0) OR GEOM.(1)    #0#
+2  LONGITUDE #293.1#        8  SELECTION OF VARIABLE   #F10.7#
+3  ALTITUDE  # 300.0#       9  VARIABLE RANGE  #    70.0   250.0    30.0#
+4  F10.7     #100.0#       10  F10.7M                  #100.0#
+5  DAY       #231#         11  ON/OFF FOR PARTICULAR VARIATIONS
+6  HOUR (UT) # 24.0#       12  DISPLAY OR STORE
+                           13  AP                       #  0.0#
+----------------------------------------------------------------------
+ENTER NUMBER
+6
+
+
+LOCAL TIME ?        [HOURS, DECIMAL]              #24.0(UT)#
+
+!! Universal Time (UT) is assumed, if you enter UT+25.
+!! Enter -1, if you like to provide LOCAL TIME as well as UNIVERSAL TIME
+------------------------------------------------------------
+enter /, to continue with current value(s)
+12
+
+
+**** WHICH PARAMETER DO YOU WANT TO CHANGE?
+----------------------------------------------------------------------
+0  NO FURTHER CHANGES, CALCULATE PROFILE
+1  LATITUDE  # 45.1#        7  GEOD.(0) OR GEOM.(1)    #0#
+2  LONGITUDE #293.1#        8  SELECTION OF VARIABLE   #F10.7#
+3  ALTITUDE  # 300.0#       9  VARIABLE RANGE  #    70.0   250.0    30.0#
+4  F10.7     #100.0#       10  F10.7M                  #100.0#
+5  DAY       #231#         11  ON/OFF FOR PARTICULAR VARIATIONS
+6  HOUR (LT) # 12.0#       12  DISPLAY OR STORE
+                           13  AP                       #  0.0#
+----------------------------------------------------------------------
+ENTER NUMBER
+0
+
+
+
+
+
+
+
+
+
+
+  F10.7        NUMBER DENSITIES/CM-3     MASS DENSITY  TEMPERATURE/K
+    DAY       O         N2         O2       G*CM-3       TN   TEXO
+   70.0   3.425E+08  7.712E+07  2.881E+06  1.296E-14     878   881
+  100.0   3.837E+08  9.666E+07  3.765E+06  1.505E-14     939   945
+  130.0   4.148E+08  1.123E+08  4.499E+06  1.670E-14     987   996
+  160.0   4.380E+08  1.238E+08  5.054E+06  1.795E-14    1022  1033
+  190.0   4.547E+08  1.312E+08  5.419E+06  1.884E-14    1044  1058
+  220.0   4.659E+08  1.347E+08  5.593E+06  1.942E-14    1055  1070
+  250.0   4.717E+08  1.343E+08  5.575E+06  1.969E-14    1054  1069
+--------------------------------------------------------------------------
+LATI/LONG= 45.1/293.1  H= 300.0  F10.7 =250.0  DAY:231  LT:12.0  AP=  0.0
+MLAT/MLON= 56.5/  3.7            F10.7M=100.0           UT:16.5
+--------------------------------------------------------------------------
+
+**** DO YOU WANT TO CONTINUE?
+------------------------------------------------------------
+"0"  QUIT AND EXIT        "1"  NEW PARAMETERS
+"2"  OTHER OUTPUT WINDOW
+------------------------------------------------------------
+1
+
+
+**** WHICH PARAMETER DO YOU WANT TO CHANGE?
+----------------------------------------------------------------------
+0  NO FURTHER CHANGES, CALCULATE PROFILE
+1  LATITUDE  # 45.1#        7  GEOD.(0) OR GEOM.(1)    #0#
+2  LONGITUDE #293.1#        8  SELECTION OF VARIABLE   #F10.7#
+3  ALTITUDE  # 300.0#       9  VARIABLE RANGE  #    70.0   250.0    30.0#
+4  F10.7     #250.0#       10  F10.7M                  #100.0#
+5  DAY       #231#         11  ON/OFF FOR PARTICULAR VARIATIONS
+6  HOUR (LT) # 12.0#       12  DISPLAY OR STORE
+                           13  AP                       #  0.0#
+----------------------------------------------------------------------
+ENTER NUMBER
+8
+
+
+SELECT YOUR VARIABLE:                                    #3#
+
+                                 Geodetic or geomagnetic coordinates
+                                 are assumed depending on your later
+1  LATITUDE    5  DAY OF YEAR    selection of JMAG.
+2  LONGITUDE   6  HOUR           Variation with Universal Time is chosen
+3  F10.7       7  ALTITUDE       by adding "25" to your BEGIN hour in 
+4  F10.7M      8  AP             the next window.
+                                 If you select F10.7M, F10.7 = F10.7M
+                                 will be assumed.
+------------------------------------------------------------
+enter /, to continue with current value(s)
+4
+
+
+CHOOSE YOUR VARIABLE RANGE:      BEGIN, END, STEPWIDTH ?
+                               #    70.0,   250.0,    30.0#
+
+------------------------------------------------------------
+enter /, to continue with current value(s)
+/
+
+
+**** WHICH PARAMETER DO YOU WANT TO CHANGE?
+----------------------------------------------------------------------
+0  NO FURTHER CHANGES, CALCULATE PROFILE
+1  LATITUDE  # 45.1#        7  GEOD.(0) OR GEOM.(1)    #0#
+2  LONGITUDE #293.1#        8  SELECTION OF VARIABLE   #F10.7#
+3  ALTITUDE  # 300.0#       9  VARIABLE RANGE  #    70.0   250.0    30.0#
+4  F10.7     #250.0#       10  F10.7M                  #100.0#
+5  DAY       #231#         11  ON/OFF FOR PARTICULAR VARIATIONS
+6  HOUR (LT) # 12.0#       12  DISPLAY OR STORE
+                           13  AP                       #  0.0#
+----------------------------------------------------------------------
+ENTER NUMBER
+0
+
+
+
+
+
+
+
+
+
+
+  F10.7        NUMBER DENSITIES/CM-3     MASS DENSITY  TEMPERATURE/K
+    MON       O         N2         O2       G*CM-3       TN   TEXO
+   70.0   2.468E+08  4.698E+07  1.715E+06  8.927E-15     800   802
+  100.0   3.837E+08  9.666E+07  3.765E+06  1.505E-14     939   945
+  130.0   5.347E+08  1.599E+08  6.408E+06  2.225E-14    1065  1076
+  160.0   7.018E+08  2.338E+08  9.443E+06  3.043E-14    1177  1195
+  190.0   8.883E+08  3.165E+08  1.271E+07  3.962E-14    1278  1302
+  220.0   1.098E+09  4.066E+08  1.608E+07  4.985E-14    1367  1397
+  250.0   1.334E+09  5.028E+08  1.944E+07  6.122E-14    1446  1480
+--------------------------------------------------------------------------
+LATI/LONG= 45.1/293.1  H= 300.0  F10.7 =250.0  DAY:231  LT:12.0  AP=  0.0
+MLAT/MLON= 56.5/  3.7            F10.7M=250.0           UT:16.5
+--------------------------------------------------------------------------
+
+**** DO YOU WANT TO CONTINUE?
+------------------------------------------------------------
+"0"  QUIT AND EXIT        "1"  NEW PARAMETERS
+"2"  OTHER OUTPUT WINDOW
+------------------------------------------------------------
+0
+FORTRAN STOP
