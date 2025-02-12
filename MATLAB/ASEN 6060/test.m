@@ -1,7 +1,12 @@
-x = linspace(0,2*pi,100);
-y = sin(x);
+const = getConst();
 
-figure();
-axis equal
-plot(x,y);
-arrow([x(length(x)/2),y(length(x)/2)],[x(1+length(x)/2),y(1+length(x)/2)]);
+
+
+ Uzz = -(1-mu)./r1.^3 - mu./r2.^3 + (3.*(1 - mu).*eq_pts(:,3).^2)./r1.^5 +...
+        (3.*mu.*eq_pts(:,3).^2)./r2.^5;
+    Uxx = 1 - (1-mu)./r1.^3 - mu./r2.^3 + (3.*(1-mu).*((eq_pts(:,1)+mu).^2))./r1.^5 +...
+        (3.*mu.*(eq_pts(:,1) -1 + mu).^2)./r2.^5;
+    Uyy = 1 - (1-mu)./r1.^3 - mu./r2.^3 + (3.*(1-mu).*(eq_pts(:,2).^2))./r1.^5 +...
+        (3.*mu.*eq_pts(:,2).^2)./r2.^5;
+    Uxy = (3.*(1-mu).*(eq_pts(:,1)+mu).*eq_pts(:,2))./r1.^5 + ...
+        (3.*mu.*(eq_pts(:,1) -1 + mu).*eq_pts(:,2))./r2.^5;
