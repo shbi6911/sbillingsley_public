@@ -13,6 +13,9 @@ function const = getConst(verbose)
 %OUTPUTS:   const       structure of constant values, either given or
 %                       derived
 %
+    arguments
+        verbose logical =0
+    end
     %set verbose flag to control output (plots & print statements)
     const.vrb = verbose;
     % gravitational parameter
@@ -57,5 +60,9 @@ function const = getConst(verbose)
     % find nondimensional time quantities
     const.t_star.em = sqrt((const.l_star.em^3)/(const.G*const.m_star.em));
     const.t_star.se = sqrt((const.l_star.se^3)/(const.G*const.m_star.se));
+
+    %equilibrium point locations
+    const.eq_pts.em = eqPts(const.mu.em);
+    const.eq_pts.se = eqPts(const.mu.se);
 
 end

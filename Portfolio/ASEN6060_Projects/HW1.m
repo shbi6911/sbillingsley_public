@@ -94,7 +94,7 @@ if const.vrb
     xlabel("X-Position ($l^*$ = 1 nondimensional unit)",'interpreter','latex');
     ylabel("Y-Position ($l^*$ = 1 nondimensional unit)",'interpreter','latex');
     title("CR3BP Trajectory 3");
-    legend([p1,p2,p3,p4],"Trajectory","Direction of Travel","Earth Diameter",...
+    legend([p2,p3,p4],"Trajectory","Direction of Travel","Earth Diameter",...
         "Lunar Diameter",'Location','southoutside');
     %saveas(gcf,"ASEN6060_HW1_Fig3",'png');
     
